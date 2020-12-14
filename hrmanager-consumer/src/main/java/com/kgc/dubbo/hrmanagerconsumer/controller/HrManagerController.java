@@ -36,4 +36,9 @@ public class HrManagerController {
         hrManagerService.add(person);
         return "select";
     }
+    @RequestMapping("/delete")
+    public String delete(Integer id){
+        hrManagerService.del(id);
+        return "redirect:/select";
+    }
 }

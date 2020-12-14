@@ -20,11 +20,16 @@ public class HrManagerServiceImpl implements HrManagerService {
     PersonMapper personMapper;
     @Override
     public List<Person> selectByAll() {
-        return null;
+        return personMapper.selectByExample(null);
     }
 
     @Override
     public int add(Person person) {
-        return 0;
+        return personMapper.insertSelective(person);
+    }
+
+    @Override
+    public int del(Integer id) {
+     return  personMapper.deleteByPrimaryKey(id);
     }
 }

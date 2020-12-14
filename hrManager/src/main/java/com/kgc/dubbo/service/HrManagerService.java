@@ -11,4 +11,5 @@ import java.util.List;
 public interface HrManagerService {
     List<Person> selectByAll();
     int add(Person person);
+    int del(Integer id);
 }

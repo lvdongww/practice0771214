@@ -1,8 +1,13 @@
 package com.kgc.dubbo.hrmanagerconsumer.controller;
 
+import com.kgc.dubbo.pojo.Person;
 import com.kgc.dubbo.service.HrManagerService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author shkstart
@@ -12,4 +17,23 @@ import org.springframework.stereotype.Controller;
 public class HrManagerController {
     @Reference
     HrManagerService hrManagerService;
+
+    @RequestMapping("/")
+    public String hrm(Model model){
+        List<Person> list=hrManagerService.selectByAll();
+        model.addAttribute("list",list);
+        return "select";
+    }
+
+    @RequestMapping("/toAdd")
+    public  String  toadd(){
+        return "add";
+    }
+
+    @RequestMapping("doAdd")
+    public String doAdd(Person person){
+
+        hrManagerService.add(person);
+        return "select";
+    }
 }

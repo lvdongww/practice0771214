@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>查询</title>
 </head>
@@ -31,32 +31,32 @@
             操作
         </td>
     </tr>
-        <tr align="center">
-            <td>
+        <tr align="center" th:each="s:${list}">
+            <td th:text="  ${s.id }">
                 ${s.id }
             </td>
-            <td>
+            <td  th:text=" ${s.name }">
                 ${s.name }
             </td>
-            <td>
+            <td  th:text=" ${s.sex }">
                 ${s.sex }
             </td>
-            <td>
+            <td  th:text="  ${s.age }">
                 ${s.age }
             </td>
-            <td>
+            <td  th:text=" ${s.rank }">
                 ${s.rank }
             </td>
-            <td>
+            <td  th:text=" ${s.department }">
                 ${s.department }
             </td>
             <td>
-                <a href="#"  class="sc">删除</a>
+                <a th:href="@{/delete(id= ${s.id })}"  class="sc">删除</a>
             </td>
         </tr>
 </table>
 <div align="center" style="white: 300px; height: 100px">
-    <a href="add">添加人员</a>
+    <a th:href="@{/toAdd}">添加人员</a>
 </div>
 </body>
 </html>

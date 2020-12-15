@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <script type="text/javascript " src="static/js/jquery-3.4.1.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>添加</title>
 </head>
 <body>
-<form action="addPerson" method="get" class="form">
+<form th:action="@{/doAdd}" method="get" class="form">
     <table border="1" align="center">
         <tr>
             <td align="center" colspan="2">
